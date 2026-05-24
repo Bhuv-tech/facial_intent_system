@@ -30,6 +30,23 @@ from database.models import create_tables
 
 app = FastAPI(title="Facial Intent API")
 
+class StrippedAPIMiddleware:
+    def __init__(self, app):
+        self.app = app
+    async def __call__(self, scope, receive, send):
+        if scope["type"] in ("http", "websocket"):
+            path = scope.get("path", "")
+            if path.startswith("/api"):
+                # Strip /api prefix
+                scope["path"] = path[4:]
+                if "raw_path" in scope:
+                    raw_path = scope["raw_path"]
+                    if raw_path.startswith(b"/api"):
+                        scope["raw_path"] = raw_path[4:]
+        await self.app(scope, receive, send)
+
+app.add_middleware(StrippedAPIMiddleware)
+
 @app.on_event("startup")
 async def startup_event():
     create_tables()
@@ -439,3 +456,12 @@ async def websocket_endpoint(websocket: WebSocket, session_id: str, user_id: Opt
                 
     except WebSocketDisconnect:
         manager.disconnect(websocket, session_id)
+
+# Serve frontend static files
+from fastapi.staticfiles import StaticFiles
+
+frontend_dir = Path(__file__).parent.parent / "frontend" / "dist"
+if frontend_dir.exists():
+    app.mount("/", StaticFiles(directory=str(frontend_dir), html=True), name="frontend")
+else:
+    logging.warning("Frontend build directory not found at %s. Static files serving disabled.", frontend_dir)
