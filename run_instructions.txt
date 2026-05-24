@@ -1,0 +1,17 @@
+# Facial Intent System - Run Commands
+
+To start the system, follow these steps:
+
+1. **Start the Backend:**
+   Open a terminal in the project root and run:
+   .\venv\Scripts\python.exe -m uvicorn backend.api:app --host 0.0.0.0 --port 8000
+
+2. **Start the Frontend:**
+   Open another terminal in the 'frontend' directory and run:
+   npx vite --host
+
+3. **Access the System:**
+   Open your browser to:
+   https://localhost:5173/ (or check Vite terminal for the local network IP)
+
+Note: The system now proxies requests to the backend dynamically, so you do not need to update 'frontend/vite.config.js' when your IP changes.
