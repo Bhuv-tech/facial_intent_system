@@ -41,9 +41,8 @@ COPY backend/ ./backend
 COPY .env ./
 COPY models.json ./
 
-# Create default data directory and copy contents
-RUN mkdir -p data
-COPY data/ ./data
+# Create default data directories
+RUN mkdir -p data/models
 
 # Copy built frontend assets from Stage 1
 COPY --from=frontend-builder /app/frontend/dist ./frontend/dist
