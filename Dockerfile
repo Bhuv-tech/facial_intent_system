@@ -19,7 +19,7 @@ RUN npm run build
 # ==========================================
 # Stage 2: Create the Python runtime image
 # ==========================================
-FROM python:3.10-slim
+FROM python:3.10
 WORKDIR /app
 
 
