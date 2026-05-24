@@ -22,6 +22,12 @@ RUN npm run build
 FROM python:3.10
 WORKDIR /app
 
+# Install OpenGL and GLib system dependencies required by OpenCV and MediaPipe
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgl1 \
+    libglib2.0-0 \
+    && rm -rf /var/lib/apt/lists/*
+
 
 
 # Copy python dependencies list
