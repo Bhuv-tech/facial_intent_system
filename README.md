@@ -1,8 +1,8 @@
 # 😊 AI-Powered Facial Intent Recognition & Behavioral Analysis Platform
 
-🔗 **Live Demo:** *(Add deployment URL if available)*
+🔗 **Live Demo:** (https://facial-intent-system.onrender.com/)
 
-🛠 **Built by:** @Bhuv-tech
+🛠 **Built by:** [@Bhuv-tech](https://github.com/Bhuv-tech)
 
 ---
 
@@ -137,16 +137,8 @@ User Uploads Image / Webcam
 
 # 📸 Screenshots
 
-*(Add screenshots here)*
-
-* Home Page
-* Login Page
-* Dashboard
-* Image Upload Interface
-* Real-Time Emotion Detection
-* Prediction Results
-* Risk Analysis
-* Generated Report
+ <img width="1908" height="1023" alt="Screenshot 2026-07-15 163839" src="https://github.com/user-attachments/assets/12a31e50-e3e4-4d1e-b37c-8098f5784b62" />
+ <img width="1872" height="1008" alt="Screenshot 2026-07-15 163811" src="https://github.com/user-attachments/assets/da89e1f0-8e16-4958-903b-d729bdc81201" />
 
 ---
 
